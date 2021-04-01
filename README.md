@@ -1,4 +1,6 @@
-# AIO-API
+# _**A**(ll-in-one)**V**(lang)**A**(PI)_
+
+
 An attempt to bring together a ton of API's into an easy-to-use central hub.
 
 ## Install and run
@@ -6,7 +8,13 @@ An attempt to bring together a ton of API's into an easy-to-use central hub.
 Clone the repo to your computer.
 
 ```
-git clone https://github.com/onyxcode/AIO-API/tree/v-rewrite.git -b v-rewrite
+git clone https://github.com/onyxcode/AVA.git
+```
+
+CD into the directory.
+
+```
+cd AVA
 ```
 
 Start the API.
