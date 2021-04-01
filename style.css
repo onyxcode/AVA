@@ -1,0 +1,62 @@
+/*Imports*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+
+/*Global Styles*/
+
+* {
+    text-decoration: none;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 400;
+}
+
+body {
+    background-color: royalblue;
+}
+
+#header {
+    text-align: center;
+    display: block;
+    font-size: 28px;
+    color: white;
+}
+
+#header span {
+    display: inline;
+    padding: 0.125em;
+    height: 2em;
+    border: 0.1em solid white;
+}
+
+nav {
+    font-size: 16px;
+}
+
+nav ul {
+    display: inline;
+}
+
+#header h1 {
+    display: inline;
+}
+
+#header a {
+    color: white;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+
+nav ul li {
+    display: inline;
+}
+
+nav ul a {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+
+nav ul a li:hover {
+    font-weight: bolder;
+    color: white;
+}
