@@ -20,5 +20,5 @@ cd AVA
 Start the API.
 
 ```
-v run api.v
+v run .
 ```
