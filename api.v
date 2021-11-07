@@ -13,7 +13,7 @@ struct App {
 
 fn main() {
 	mut port := os.input('What port will you be running the server on?\n> ')
-	vweb.run<App>(port.int())
+	vweb.run(&App{}, port.int())
 }
 
 fn dogapi() ?string {
@@ -55,31 +55,34 @@ pub fn bored() ?string {
             'Learn a new language',
             'Eat food',
             'Talk to a friend',
-            'Play Hypixel',
+            'Play Minecraft',
             'Write a book',
             'Make a scrapbook',
             'Drink water',
             'Check Instagram',
             'Watch a movie',
             'Make a virtual machine',
-            'Find someone and send them a "PogChamp" with absolutely no context']
+            'Try a new food']
 	return(ideas[rand.intn(ideas.len)])
 	
 }
 
-['/']
 pub fn (mut app App) index() vweb.Result {
-    app.serve_static("/style.css", "style.css", ".css")
-    return $vweb.html()
+	app.serve_static("/style.css", "style.css")
+	return $vweb.html()
 }
 
 
+//Initial API endpoint
+['/api']
+pub fn (mut app App) api() vweb.Result {
+    return app.json('{\"dog\": \"/api/dog\", \"cat\": \"/api/cat\", \"fox\": \"/api/fox\", \"utc\": \"/api/utc\", \"idea\": \"/api/idea\", \"rng\": \"/api/rng\"}')
+}
 
 // Random number generator, up to 9999
 ['/api/rng']
 pub fn (mut app App) random_number() vweb.Result {
 	rng := rand.intn(9999)
-	println("Requested: $rng")
 	return app.json('{"random":$rng}')
 }
 
@@ -111,7 +114,7 @@ pub fn (mut app App) fox() vweb.Result {
     id := foxapi() or {
         return app.json("[{\"error\":\"No image found, try again later.\"}]")
     }
-    return app.json("[{\"image\":\"$id\"}]")
+    return app.json("[{\"url\":\"$id\"}]")
 }
 
 ['/api/cat']
@@ -119,11 +122,5 @@ pub fn (mut app App) cat() vweb.Result {
     id := catapi() or {
         return app.json("[{\"error\":\"No image found, try again later.\"}]")
     }
-    return app.json("[{\"image\":\"$id\"}]")
-}
-
-pub fn (app &App) init() {
-}
-
-pub fn (app &App) init_once() {
+    return app.json("[{\"url\":\"$id\"}]")
 }
